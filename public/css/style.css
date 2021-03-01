@@ -1,3 +1,108 @@
-body{
-    background-color: lightgray;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #01c355;
+    font-family: "Poppins", sans-serif;
+}
+
+.logo {
+    color: white;
+    letter-spacing: 5px;
+    font-size: 22px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: #f3f1f1;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.nav-links a:hover {
+    background-color: green;
+}
+
+.nav-links div:hover {
+    background-color: green;
+}
+
+.nav-links div {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sideMenu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 0px;
+    background-color: #f3f1f1;
+    z-index: 1;
+    padding-top: 100px;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.sideMenu :hover {
+    color: gray;
+}
+
+.sideMenu a {
+    padding: 8px 8px 8px 64px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+}
+
+.sideMenu .closeBtn {
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 32px;
+}
+
+.slideLogo {
+    position: absolute;
+    top: 12px;
+    left: 64px;
+    font-size: 30px;
+    color: #01c355;
+    font-weight: bold;
+}
+
+#menuBox {
+    color: #f3f1f1;
+    cursor: pointer;
+    padding-top: 3px;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
 }
