@@ -11,6 +11,7 @@ nav {
     min-height: 8vh;
     background-color: #01c355;
     font-family: "Poppins", sans-serif;
+    white-space: nowrap;
 }
 
 .logo {
@@ -105,4 +106,5 @@ nav {
     letter-spacing: 3px;
     font-weight: bold;
     font-size: 14px;
+    white-space: nowrap;
 }
