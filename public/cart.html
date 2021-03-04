@@ -5,6 +5,10 @@
         <link rel="stylesheet" href="css\style.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
+            href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+            rel="stylesheet"
+        />
+        <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
             rel="stylesheet"
         />
@@ -19,7 +23,7 @@
             <div id="menu" class="sideMenu">
                 <a href="#">Dator</a>
                 <a href="#">TV</a>
-                <a href="#">Ljud</a>
+                <a href="phones.html">Phones</a>
                 <a href="#" class="closeBtn" onclick="closeSlideMenuFunction()"
                     >&times;</a
                 >
@@ -31,11 +35,16 @@
                 </div>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">About us</a></li>
-                <li><a href="cart.html">Cart</a></li>
+                <li>
+                    <a href="cart.html">
+                        <ion-icon name="basket"></ion-icon>Cart<span>0</span>
+                    </a>
+                </li>
                 <li><a href="#">Sign in</a></li>
             </ul>
         </nav>
     </body>
 
     <script src="script/app.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </html>
