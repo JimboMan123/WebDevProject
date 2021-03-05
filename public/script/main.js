@@ -19,18 +19,18 @@ let products = [
     },
     {
         name: "iPhone 12",
-        tag: "iphone12blue",
+        tag: "iphone12",
         price: 12900,
         inCart: 0,
     },
     {
-        name: "iPhone 12 Pro Max Blue",
-        tag: "iphone12ProMaxBlue",
+        name: "iPhone 122",
+        tag: "iphone122",
         price: 14900,
         inCart: 0,
     },
     {
-        name: "Samsung Something",
+        name: "samsung 20",
         tag: "samsung20",
         price: 11900,
         inCart: 0,
