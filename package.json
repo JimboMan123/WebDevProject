@@ -1,0 +1,25 @@
+{
+  "name": "webdevproject",
+  "version": "1.0.0",
+  "description": "Project work for web dev course",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JimboMan123/WebDevProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JimboMan123/WebDevProject/issues"
+  },
+  "homepage": "https://github.com/JimboMan123/WebDevProject#readme"
+}
