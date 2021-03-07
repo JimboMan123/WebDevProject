@@ -1,0 +1,30 @@
+body{
+    background-color: lightgray;
+  }
+  
+  
+
+  /* Full-width input fields */
+input[type=text] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(66, 66, 66);
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+}
