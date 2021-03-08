@@ -8,15 +8,6 @@ const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('view-engine', 'ejs');
-
-app.get('/login', (req, res) => {
-    res.render('login.ejs')
-  })
-
-  app.get('/register', (req, res) => {
-    res.render('register.ejs')
-  })
 
 
 
