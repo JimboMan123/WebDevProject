@@ -12,12 +12,6 @@ let carts = document.querySelectorAll(".add-cart");
 
 let products = [
     {
-        name: "iPhone 7",
-        tag: "iphone7",
-        price: 7900,
-        inCart: 0,
-    },
-    {
         name: "iPhone 12",
         tag: "iphone12",
         price: 12900,
