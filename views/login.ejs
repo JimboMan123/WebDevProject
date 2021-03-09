@@ -9,10 +9,15 @@
     <a href="/index">Back to Main page</a><br><br>
 
     <h1>Login EJS</h1>
+
+    <% if( typeof(isLoggedIn) !="undefined"){%>
+    <%if (isLoggedIn) { %>
+        <p> <%= username %> is logged in</p>
+      <% }} %>
     
-<form action="" method="post">
+<form action="/auth" method="post">
     Name:<br>
-    <input type="text" name="name" placeholder="Enter Username" required><br>
+    <input type="text" name="username" placeholder="Enter Username" required><br>
     Password:<br>
     <input type="text" name="password" placeholder="Enter Password" required><br>
    <input id = submitButtonId type="submit"  name="submitButton" value = "Sign in">

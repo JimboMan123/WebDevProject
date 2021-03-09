@@ -48,6 +48,11 @@
             </ul>
         </nav>
 
+        <% if( typeof(isLoggedIn) !="undefined"){%>
+            <%if (isLoggedIn) { %>
+                <h1> <%= username %> is logged in</h1>
+              <% }} %>
+
         <div class="slider">
             <h3 class="slider-title">Daily Deals! 10% of all phones!</h3>
             <div class="slides">

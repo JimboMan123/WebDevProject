@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 
 
 app.use(session({
-	secret: process.env.SECRET_SESSION,
+	secret: process.env.SESSION_SECRET,
 	resave: true,
 	saveUninitialized: true
 }));
@@ -41,17 +41,32 @@ connection.connect(function(err) {
 
 
 app.get('/', function(request, response) {
-	
-  response.render('index.ejs');
-       
-response.end();
+
+  if (request.session.loggedin) {
+    response.render('index.ejs', {
+      isLoggedIn: true,
+      username: request.session.username
+    });
+            
+	} else {
+		response.render('index.ejs');
+	}
+	response.end();
+
 });
 
 app.get('/index', function(request, response) {
 	
-  response.render('index.ejs');
-       
-response.end();
+  if (request.session.loggedin) {
+    response.render('index.ejs', {
+      isLoggedIn: true,
+      username: request.session.username
+    });
+            
+	} else {
+		response.render('index.ejs');
+	}
+	response.end();
 });
 
 app.get('/cart', function(request, response) {
@@ -80,6 +95,31 @@ app.get('/register', function(request, response) {
   response.render('register.ejs');
        
 response.end();
+});
+
+app.post('/auth', function(request, response) {
+	var username = request.body.username;
+	var password = request.body.password;
+  console.log(username)
+  console.log(password)
+	if (username && password) {
+		connection.query('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+			if (results.length > 0) {
+				request.session.loggedin = true;
+				request.session.username = username;
+				response.render('login.ejs', {
+                    isLoggedIn: true,
+                    username: username
+                  });
+			} else {
+				response.send('Incorrect Username and/or Password!');
+			}			
+			response.end();
+		});
+	} else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
 });
 
 
