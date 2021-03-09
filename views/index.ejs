@@ -48,10 +48,19 @@
             </ul>
         </nav>
 
-        <% if( typeof(isLoggedIn) !="undefined"){%>
-            <%if (isLoggedIn) { %>
-                <h1> <%= username %> is logged in</h1>
-              <% }} %>
+        <% if( typeof(isLoggedIn) !="undefined"){%> <%if (isLoggedIn) { %>
+        <h1><%= username %> is logged in</h1>
+        <% }} %>
+
+        <div class="top-banner">
+            <img class="img-bokrea" src="images/bokrea.jpg" alt="" />
+            <img class="img-premium" src="images/premium.jpg" alt="" />
+            <img
+                class="img-mobiltelefoner"
+                src="images/mobiltelefoner.jpg"
+                alt=""
+            />
+        </div>
 
         <div class="slider">
             <h3 class="slider-title">Daily Deals! 10% of all phones!</h3>

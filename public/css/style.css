@@ -442,3 +442,27 @@ footer {
     word-spacing: 2px;
     text-transform: capitalize;
 }
+
+/* ----------------- Top Banner --------------- */
+
+.top-banner {
+    position: relative;
+    top: 50px;
+    left: 420px;
+}
+.img-bokrea {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.img-mobiltelefoner {
+    position: absolute;
+    top: 0px;
+    left: 810px;
+}
+
+.img-premium {
+    position: absolute;
+    top: 205px;
+    left: 810px;
+}
