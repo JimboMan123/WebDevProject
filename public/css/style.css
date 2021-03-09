@@ -228,14 +228,14 @@ li a {
 }
 
 .quantity {
-    width: 30%;
+    width: 25%;
     border-bottom: 1px solid lightgray;
     display: flex;
     align-items: center;
 }
 
 .total {
-    width: 10%;
+    width: 15%;
     border-bottom: 1px solid lightgray;
     display: flex;
     align-items: center;
@@ -276,7 +276,7 @@ li a {
 }
 
 .basketTotal {
-    width: 10%;
+    width: 15%;
 }
 
 @media (max-width: 500px) {
@@ -306,7 +306,7 @@ li a {
     margin-top: 100px;
     margin-left: 45%;
     width: 400px;
-    height: 320px;
+    min-height: 320px;
     border-radius: 10px;
     border: 2px solid #01c355;
     overflow: hidden;
