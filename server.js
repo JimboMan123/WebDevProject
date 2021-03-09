@@ -1,12 +1,44 @@
 require('dotenv').config();
 const express = require('express');
 const path = require("path");
-
 const app = express();
 
 const PORT = 3000;
 
+var mysql = require('mysql');
+var session = require('express-session');
 app.set('view engine', 'ejs');
+
+
+app.use(session({
+	secret: process.env.SECRET_SESSION,
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(express.urlencoded({extended : true}));
+app.use(express.json());
+
+var connection = mysql.createConnection({
+	host     : process.env.DB_HOST,
+	user     : process.env.DB_USER,
+	password : process.env.DB_PASS,
+	database : process.env.DB_DBNAME
+});
+
+
+connection.connect(function(err) {
+  if (err) {
+    return console.error('error: ' + err.message);
+  }
+
+  console.log('Connected to the MySQL server.');
+
+  connection.query("SELECT * FROM users", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
+
 
 app.get('/', function(request, response) {
 	
