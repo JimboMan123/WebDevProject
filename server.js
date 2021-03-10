@@ -64,20 +64,38 @@ app.get("/index", function (request, response) {
 });
 
 app.get("/cart", function (request, response) {
-    response.render("cart.ejs");
-
+	if (request.session.loggedin) {
+        response.render("cart.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("cart.ejs");
+    }
     response.end();
 });
 
 app.get("/phones", function (request, response) {
-    response.render("phones.ejs");
-
+    if (request.session.loggedin) {
+        response.render("phones.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("phones.ejs");
+    }
     response.end();
 });
 
 app.get("/tv", function (request, response) {
-    response.render("tv.ejs");
-
+    if (request.session.loggedin) {
+        response.render("tv.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("tv.ejs");
+    }
     response.end();
 });
 
@@ -91,7 +109,9 @@ app.get("/logout", function (request, response) {
     
     request.session.destroy();
 
-	response.send("<h1> User is logged out <h1>");
+	response.render("index.ejs");
+
+	response.end();
 });
 
 app.get("/register", function (request, response) {
