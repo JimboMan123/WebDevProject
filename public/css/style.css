@@ -13,6 +13,7 @@ body {
     min-height: 100%;
     position: relative;
     margin-top: auto;
+    overflow-x: hidden;
 }
 
 nav {
@@ -313,6 +314,7 @@ li a {
     border-radius: 10px;
     border: 2px solid #01c355;
     overflow: hidden;
+    margin-bottom: 100px;
 }
 
 .slider-title {
@@ -337,8 +339,8 @@ li a {
 }
 
 .slide img {
-    width: 247px;
-    height: 296px;
+    width: 227px;
+    height: 306px;
     margin-left: 80px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -449,10 +451,13 @@ footer {
 /* ----------------- Top Banner --------------- */
 
 .top-banner {
+    max-width: 1200px;
     position: relative;
-    top: 50px;
-    left: 420px;
+    top: 70px;
+    left: 25%;
+    margin-bottom: 150px;
 }
+
 .img-bokrea {
     position: relative;
     top: 0;
