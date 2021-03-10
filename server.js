@@ -75,6 +75,12 @@ app.get("/phones", function (request, response) {
     response.end();
 });
 
+app.get("/tv", function (request, response) {
+    response.render("tv.ejs");
+
+    response.end();
+});
+
 app.get("/login", function (request, response) {
     response.render("login.ejs");
 
