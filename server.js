@@ -87,10 +87,62 @@ app.get("/login", function (request, response) {
     response.end();
 });
 
+app.get("/logout", function (request, response) {
+    
+    request.session.destroy();
+
+	response.send("<h1> User is logged out <h1>");
+});
+
 app.get("/register", function (request, response) {
     response.render("register.ejs");
 
     response.end();
+});
+
+app.post("/registerAction", function (request, response) {
+    var username = request.body.name;
+    var password = request.body.password;
+	var email = request.body.email;
+    console.log(username);
+    console.log(password);
+	console.log(email);
+
+
+	if (username && password && email) {
+        connection.query(
+            "SELECT * FROM users WHERE email = ? ",
+            [email],
+            function (error, results, fields) {
+                if (results.length > 0) {
+                    
+                    response.render("register.ejs", {
+                        registerSuccesful : false
+                    });
+					response.end();
+                } else {
+					connection.query(
+						"INSERT INTO users(username, password, email) VALUES (?, ?, ?)",
+						[username, password, email],
+						function (error, results, fields) {
+							
+								console.log('new Row Id:' + results.insertId);
+								response.render("register.ejs", {
+									registerSuccesful : true
+								});
+							response.end();
+						}
+					);
+                   
+                }
+                
+            }
+        );
+    }
+	 else {
+        response.send("Please enter Username and Password!");
+        response.end();
+    }
 });
 
 app.post("/auth", function (request, response) {

@@ -9,8 +9,15 @@
     
     <a href="/index">Back to Main page</a><br><br>
 
+    <% if( typeof(registerSuccesful) !="undefined"){%>
+      <%if (registerSuccesful) { %>
+          <p> You have successfully registered a new account! </p>
+        <% } else { %>
+          <p> That email address is already registered!</p>
+          <% }} %>
+
 <h1>Register new account EJS</h1>
-<form action="/register" method="POST">
+<form action="/registerAction" method="POST">
   <div>
     <label for="name">Name</label><br>
     <input type="text" id="name" name="name" required>
