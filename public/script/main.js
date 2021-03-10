@@ -29,6 +29,24 @@ let products = [
         price: 11900,
         inCart: 0,
     },
+    {
+        name: "Tv 1",
+        tag: "tv1",
+        price: 12900,
+        inCart: 0,
+    },
+    {
+        name: "Tv 2",
+        tag: "tv2",
+        price: 14900,
+        inCart: 0,
+    },
+    {
+        name: "Tv 3",
+        tag: "tv3",
+        price: 11900,
+        inCart: 0,
+    },
 ];
 
 for (let i = 0; i < carts.length; i++) {
