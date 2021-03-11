@@ -6,15 +6,23 @@
 
 <body>
 
-    <a href="/index">Back to Main page</a><br><br>
-
-    <h1>Login EJS</h1>
-
     <% if( typeof(isLoggedIn) !="undefined"){%>
     <%if (isLoggedIn) { %>
         <p> <%= username %> is logged in</p>
       <% }} %>
+
+
+      <div class="filler">
+        <div class="logo">
+            <h4>E-Store</h4>
+        </div>
+      </div>
+      
     
+      <div class="formContainer">
+
+        <h1>Welcome! Login</h1>
+
 <form action="/auth" method="post">
     Name:<br>
     <input type="text" name="username" placeholder="Enter Username" required><br>
@@ -23,7 +31,21 @@
    <input id = submitButtonId type="submit"  name="submitButton" value = "Sign in">
    </form>
 
-   <a href="/register">Don't have an account? Register here</a>
+   <form action="register" method="GET">
+    <input id = "registerButton" type="submit" value="Create an account" />
+</form>
+
+   
+</div>
+
+<a href="/index">Back to Main page</a>
+
+
+
+
+<div style="clear:both;"></div>
+
+
 
 </body>
    </html>
