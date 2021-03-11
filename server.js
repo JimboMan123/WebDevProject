@@ -64,20 +64,38 @@ app.get("/index", function (request, response) {
 });
 
 app.get("/cart", function (request, response) {
-    response.render("cart.ejs");
-
+	if (request.session.loggedin) {
+        response.render("cart.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("cart.ejs");
+    }
     response.end();
 });
 
 app.get("/phones", function (request, response) {
-    response.render("phones.ejs");
-
+    if (request.session.loggedin) {
+        response.render("phones.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("phones.ejs");
+    }
     response.end();
 });
 
 app.get("/tv", function (request, response) {
-    response.render("tv.ejs");
-
+    if (request.session.loggedin) {
+        response.render("tv.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("tv.ejs");
+    }
     response.end();
 });
 
@@ -87,10 +105,64 @@ app.get("/login", function (request, response) {
     response.end();
 });
 
+app.get("/logout", function (request, response) {
+    
+    request.session.destroy();
+
+	response.render("index.ejs");
+
+	response.end();
+});
+
 app.get("/register", function (request, response) {
     response.render("register.ejs");
 
     response.end();
+});
+
+app.post("/registerAction", function (request, response) {
+    var username = request.body.name;
+    var password = request.body.password;
+	var email = request.body.email;
+    console.log(username);
+    console.log(password);
+	console.log(email);
+
+
+	if (username && password && email) {
+        connection.query(
+            "SELECT * FROM users WHERE email = ? ",
+            [email],
+            function (error, results, fields) {
+                if (results.length > 0) {
+                    
+                    response.render("register.ejs", {
+                        registerSuccesful : false
+                    });
+					response.end();
+                } else {
+					connection.query(
+						"INSERT INTO users(username, password, email) VALUES (?, ?, ?)",
+						[username, password, email],
+						function (error, results, fields) {
+							
+								console.log('new Row Id:' + results.insertId);
+								response.render("register.ejs", {
+									registerSuccesful : true
+								});
+							response.end();
+						}
+					);
+                   
+                }
+                
+            }
+        );
+    }
+	 else {
+        response.send("Please enter Username and Password!");
+        response.end();
+    }
 });
 
 app.post("/auth", function (request, response) {
