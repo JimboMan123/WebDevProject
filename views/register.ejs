@@ -7,7 +7,7 @@
 
 <body>
     
-    <a href="/index">Back to Main page</a><br><br>
+  
 
     <% if( typeof(registerSuccesful) !="undefined"){%>
       <%if (registerSuccesful) { %>
@@ -16,7 +16,14 @@
           <p> That email address is already registered!</p>
           <% }} %>
 
-<h1>Register new account EJS</h1>
+          <div class="filler">
+            <div class="logo">
+                <h4>E-Store</h4>
+            </div>
+          </div>
+
+          <div class="formContainer">
+<h1>Register new account</h1> <br>
 <form action="/registerAction" method="POST">
   <div>
     <label for="name">Name</label><br>
@@ -32,7 +39,14 @@
   </div>
   <input type="submit" value="Register"></input>
 </form>
+
+</div>
+<a href="/index">Back to Main page</a>
+
+<div class="links">
+<p>Already got an account?</p>
 <a href="/login">Login</a>
+</div>
 
 </body>
 </html>
