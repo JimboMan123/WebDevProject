@@ -64,7 +64,7 @@ app.get("/index", function (request, response) {
 });
 
 app.get("/cart", function (request, response) {
-	if (request.session.loggedin) {
+    if (request.session.loggedin) {
         response.render("cart.ejs", {
             isLoggedIn: true,
             username: request.session.username,
@@ -83,6 +83,18 @@ app.get("/phones", function (request, response) {
         });
     } else {
         response.render("phones.ejs");
+    }
+    response.end();
+});
+
+app.get("/computers", function (request, response) {
+    if (request.session.loggedin) {
+        response.render("computers.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("computers.ejs");
     }
     response.end();
 });
@@ -106,12 +118,11 @@ app.get("/login", function (request, response) {
 });
 
 app.get("/logout", function (request, response) {
-    
     request.session.destroy();
 
-	response.render("index.ejs");
+    response.render("index.ejs");
 
-	response.end();
+    response.end();
 });
 
 app.get("/register", function (request, response) {
@@ -123,43 +134,37 @@ app.get("/register", function (request, response) {
 app.post("/registerAction", function (request, response) {
     var username = request.body.name;
     var password = request.body.password;
-	var email = request.body.email;
+    var email = request.body.email;
     console.log(username);
     console.log(password);
-	console.log(email);
+    console.log(email);
 
-
-	if (username && password && email) {
+    if (username && password && email) {
         connection.query(
             "SELECT * FROM users WHERE email = ? ",
             [email],
             function (error, results, fields) {
                 if (results.length > 0) {
-                    
                     response.render("register.ejs", {
-                        registerSuccesful : false
+                        registerSuccesful: false,
                     });
-					response.end();
+                    response.end();
                 } else {
-					connection.query(
-						"INSERT INTO users(username, password, email) VALUES (?, ?, ?)",
-						[username, password, email],
-						function (error, results, fields) {
-							
-								console.log('new Row Id:' + results.insertId);
-								response.render("register.ejs", {
-									registerSuccesful : true
-								});
-							response.end();
-						}
-					);
-                   
+                    connection.query(
+                        "INSERT INTO users(username, password, email) VALUES (?, ?, ?)",
+                        [username, password, email],
+                        function (error, results, fields) {
+                            console.log("new Row Id:" + results.insertId);
+                            response.render("register.ejs", {
+                                registerSuccesful: true,
+                            });
+                            response.end();
+                        }
+                    );
                 }
-                
             }
         );
-    }
-	 else {
+    } else {
         response.send("Please enter Username and Password!");
         response.end();
     }

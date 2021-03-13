@@ -190,7 +190,10 @@ li a {
 .image:hover .cart4,
 .image:hover .cart5,
 .image:hover .cart6,
-.image:hover .cart7 {
+.image:hover .cart7,
+.image:hover .cart8,
+.image:hover .cart9,
+.image:hover .cart10 {
     bottom: 50px;
     opacity: 1;
     padding: 10px;

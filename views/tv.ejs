@@ -25,7 +25,7 @@
             </div>
 
             <div id="menu" class="sideMenu">
-                <a href="#">Dator</a>
+                <a href="/computers">Dator</a>
                 <a href="/tv">TV</a>
                 <a href="/phones">Phones</a>
                 <a href="#" class="closeBtn" onclick="closeSlideMenuFunction()"
@@ -44,10 +44,10 @@
                         <ion-icon name="basket"></ion-icon>Cart<span>0</span>
                     </a>
                 </li>
-                <% if( typeof(isLoggedIn) !="undefined"){%> 
-                    <%if (isLoggedIn) { %>
-                        <li><a href="/logout">Logout</a></li>
-                <% }} else  { %>
+                <% if( typeof(isLoggedIn) !="undefined"){%> <%if (isLoggedIn) {
+                %>
+                <li><a href="/logout">Logout</a></li>
+                <% }} else { %>
                 <li><a href="/login">Sign in</a></li>
                 <% } %>
             </ul>
