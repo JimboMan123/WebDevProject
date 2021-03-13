@@ -47,6 +47,25 @@ let products = [
         price: 11900,
         inCart: 0,
     },
+
+    {
+        name: "PC 1",
+        tag: "pc1",
+        price: 12900,
+        inCart: 0,
+    },
+    {
+        name: "PC 2",
+        tag: "pc2",
+        price: 14900,
+        inCart: 0,
+    },
+    {
+        name: "PC 3",
+        tag: "pc3",
+        price: 11900,
+        inCart: 0,
+    },
 ];
 
 for (let i = 0; i < carts.length; i++) {
