@@ -193,7 +193,8 @@ li a {
 .image:hover .cart7,
 .image:hover .cart8,
 .image:hover .cart9,
-.image:hover .cart10 {
+.image:hover .cart10,
+.image:hover .cart11 {
     bottom: 50px;
     opacity: 1;
     padding: 10px;
@@ -479,4 +480,53 @@ footer {
     position: absolute;
     top: 205px;
     left: 810px;
+}
+
+/* ----------------- phone 1 (detailed view) --------------- */
+
+.container-phone1 {
+    margin-top: 50px;
+    margin-right: 50px;
+}
+
+.image-phone1 {
+    margin-top: 0px;
+    margin-right: 300px;
+    margin-left: 300px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+a.add-cart.cart2 {
+    margin-bottom: 40px;
+}
+
+h3.phone1-name {
+    margin-top: 20px;
+    text-decoration: solid;
+}
+h3.phone1-price {
+    margin-top: 5px;
+    text-decoration: solid;
+}
+
+.image-phone1:hover .cart12 {
+    background-color: #01c355;
+    bottom: 0px;
+    opacity: 1;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.detailed-info {
+    position: relative;
+    margin-left: 530px;
+    margin-right: 250px;
+    margin-top: -120px;
+    margin-bottom: 50px;
+}
+
+.product-info {
+    margin-top: 200px;
 }

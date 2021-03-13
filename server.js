@@ -99,6 +99,18 @@ app.get("/computers", function (request, response) {
     response.end();
 });
 
+app.get("/iphone12", function (request, response) {
+    if (request.session.loggedin) {
+        response.render("phone1.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("phone1.ejs");
+    }
+    response.end();
+});
+
 app.get("/tv", function (request, response) {
     if (request.session.loggedin) {
         response.render("tv.ejs", {
