@@ -255,15 +255,25 @@ li a {
 
 .product {
     width: 45%;
-    display: flex;
+    display: inline-table;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px 0px;
     border-bottom: 1px solid lightgray;
 }
 
 .product ion-icon {
     cursor: pointer;
+    align-items: center;
+    padding-bottom: 10%;
+    padding-right: 5%;
+}
+
+#product-name.sm-hide {
+    position: relative;
+    top: -35px;
+    padding-left: 20px;
+    display: inline-block;
 }
 
 .products {
