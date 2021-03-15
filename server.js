@@ -161,6 +161,10 @@ app.post("/registerAction", function (request, response) {
     var username = request.body.name;
     var password = request.body.password;
     var email = request.body.email;
+    var newAdmin = request.body.newAdmin;
+    var isAdmin = request.session.isAdmin;
+
+
     console.log(username);
     console.log(password);
     console.log(email);
@@ -176,17 +180,55 @@ app.post("/registerAction", function (request, response) {
                     });
                     response.end();
                 } else {
-                    connection.query(
-                        "INSERT INTO users(username, password, email) VALUES (?, ?, ?)",
-                        [username, password, email],
-                        function (error, results, fields) {
-                            console.log("new Row Id:" + results.insertId);
-                            response.render("register.ejs", {
-                                registerSuccesful: true,
-                            });
-                            response.end();
-                        }
-                    );
+
+                    if(isAdmin){
+                        if(newAdmin=="1"){
+                            connection.query(
+                                "INSERT INTO users(username, password, email, isAdmin) VALUES (?, ?, ?, ?)",
+                                [username, password, email, newAdmin],
+                                function (error, results, fields) {
+                                    if(error){
+                                        console.log(error);
+                                    }
+                                   // console.log("new Row Id:" + results.insertId);
+                                    response.render("adminPage.ejs", {
+                                        registerSuccesful: true,
+                                    });
+                                    response.end();
+                                }
+                            );
+                    } else{
+                        connection.query(
+                            "INSERT INTO users(username, password, email) VALUES (?, ?, ?)",
+                            [username, password, email],
+                            function (error, results, fields) {
+                                if(error){
+                                    console.log(error);
+                                }
+                               // console.log("new Row Id:" + results.insertId);
+                                response.render("adminPage.ejs", {
+                                    registerSuccesful: true,
+                                });
+                                response.end();
+                            }
+                        );
+                    }
+                    } else{
+                        connection.query(
+                            "INSERT INTO users(username, password, email) VALUES (?, ?, ?)",
+                            [username, password, email],
+                            function (error, results, fields) {
+                                if(error){
+                                    console.log(error);
+                                }
+                               // console.log("new Row Id:" + results.insertId);
+                                response.render("register.ejs", {
+                                    registerSuccesful: true,
+                                });
+                                response.end();
+                            }
+                        );
+                    }
                 }
             }
         );
