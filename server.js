@@ -223,6 +223,13 @@ app.post("/auth", function (request, response) {
     }
 });
 
+app.get('/adminPage', function(request, response) {
+	
+	response.render('adminPage.ejs');
+	 
+response.end();
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(PORT, () => {

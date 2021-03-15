@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Admin page</title>
+    <link rel="stylesheet" href="css/viewStyle.css">
+    <script src="fetch_data.js"></script>
+</head>
+
+<body>
+
+    <button onclick="fetchUsers()">Fetch users</button>
+
+    
+    <button class = createButton>Create new user</button>    
+
+    <div style="clear:both;"></div>
+
+    <br>
+
+    <div class= "user">
+    
+    <div class="username">
+        username
+    </div>
+
+    <div class="email">
+        email
+    </div>
+
+    <div class="isAdmin">
+        isAdmin
+    </div>
+
+    <div class="infoButton"> 
+        <input type="button" value="Show info" onclick="showInfo(this.id)">
+    </div>
+
+    <div class="updateButton"> 
+        <input type="button" value="Update user">
+    </div>
+
+    <div class="deleteButton"> 
+        <input type="button" value="Delete user" >
+    </div>
+
+    
+
+</div>
+
+
+
+
+
+
+
+</body>
+
+</html>
