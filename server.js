@@ -75,6 +75,18 @@ app.get("/cart", function (request, response) {
     response.end();
 });
 
+app.get("/aboutUs", function (request, response) {
+    if (request.session.loggedin) {
+        response.render("aboutUs.ejs", {
+            isLoggedIn: true,
+            username: request.session.username,
+        });
+    } else {
+        response.render("aboutUs.ejs");
+    }
+    response.end();
+});
+
 app.get("/phones", function (request, response) {
     if (request.session.loggedin) {
         response.render("phones.ejs", {
