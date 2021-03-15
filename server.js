@@ -230,6 +230,44 @@ app.get('/adminPage', function(request, response) {
 response.end();
 });
 
+app.get("/getUsers",(req,res) => {
+    connection.query('SELECT id, username, email, isAdmin FROM users', (err, rows) => {
+        if(err) throw err;
+        console.log('The data from accounts table are: \n', rows);
+        res.send(rows)
+
+       // connection.end();
+    });
+});
+
+app.post("/showUserInfo",(req,res) => {
+
+	//var { email }  = JSON.parse(req.body)
+	var email   = req.body.email;
+	console.log("The email is: "+ email);
+    connection.query('SELECT id, username, email, isAdmin FROM users where email = ?', [email], (err, rows) => {
+        if(err) throw err;
+        console.log('The data from accounts table are: \n', rows);
+        res.send(rows)
+
+       // connection.end();
+    });
+});
+
+app.post("/deleteUser",(req,res) => {
+
+	//var { email }  = JSON.parse(req.body)
+	var email   = req.body.email;
+	console.log("The email is: "+ email);
+    connection.query('DELETE FROM users WHERE email = ?', [email], (err, result) => {
+        if(err) throw err;
+        console.log('Affected rows: \n', result.affectedRows);
+        res.send({success:true});
+
+       // connection.end();
+    });
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(PORT, () => {
