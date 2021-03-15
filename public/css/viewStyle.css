@@ -48,6 +48,65 @@ margin-top: 10%;
   text-align: center;
   margin-top: 10%;
 }
+
+.users{
+  overflow: hidden;
+  border: 1px solid black;
+  margin-bottom: 1px;
+  background-color: lightgray;
+
+}
+
+.user{
+  overflow: hidden;
+  border: 1px solid black;
+  margin-bottom: 1px;
+
+}
+
+.username{
+padding: 10px;
+margin: 0px;
+float: left;
+}
+
+.email{
+  padding: 10px;
+  margin: 0px;
+  float: left;
+  
+}
+
+.isAdmin{
+  padding: 10px;
+  margin: 0px;
+  float: left;
+ }
+
+ .infoButton{
+  padding: 10px;
+  margin: 0px;
+  float: right;
+ }
+
+ .updateButton{
+  padding: 10px;
+  margin: 0px;
+  float: right;
+ }
+
+ .deleteButton{
+  padding: 10px;
+  margin: 0px;
+  float: right;
+ }
+
+ .createButton{
+  padding: 10px;
+  margin: 0px;
+  float: right;
+  margin-right: 10%;
+ }
   
   
 

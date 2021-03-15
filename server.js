@@ -46,6 +46,7 @@ app.get("/", function (request, response) {
         response.render("index.ejs", {
             isLoggedIn: true,
             username: request.session.username,
+            isAdmin : request.session.isAdmin
         });
     } else {
         response.render("index.ejs");
@@ -58,6 +59,7 @@ app.get("/index", function (request, response) {
         response.render("index.ejs", {
             isLoggedIn: true,
             username: request.session.username,
+            isAdmin : request.session.isAdmin
         });
     } else {
         response.render("index.ejs");
@@ -239,9 +241,11 @@ app.post("/auth", function (request, response) {
                 if (results.length > 0) {
                     request.session.loggedin = true;
                     request.session.username = username;
+                    request.session.isAdmin = results[0].isAdmin;
                     response.render("login.ejs", {
                         isLoggedIn: true,
                         username: username,
+                        isAdmin : results[0].isAdmin
                     });
                 } else {
                     response.send("Incorrect Username and/or Password!");
@@ -253,6 +257,58 @@ app.post("/auth", function (request, response) {
         response.send("Please enter Username and Password!");
         response.end();
     }
+});
+
+app.get('/adminPage', function(request, response) {
+
+    if (request.session.isAdmin) {
+        response.render("adminPage.ejs", {
+            username: request.session.username,
+        });
+    } else {
+        response.status(403).send("You are trying to access restricted content");
+    }
+	
+	 
+response.end();
+});
+
+app.get("/getUsers",(req,res) => {
+    connection.query('SELECT id, username, email, isAdmin FROM users', (err, rows) => {
+        if(err) throw err;
+        console.log('The data from accounts table are: \n', rows);
+        res.send(rows)
+
+       // connection.end();
+    });
+});
+
+app.post("/showUserInfo",(req,res) => {
+
+	//var { email }  = JSON.parse(req.body)
+	var email   = req.body.email;
+	console.log("The email is: "+ email);
+    connection.query('SELECT id, username, email, isAdmin FROM users where email = ?', [email], (err, rows) => {
+        if(err) throw err;
+        console.log('The data from accounts table are: \n', rows);
+        res.send(rows)
+
+       // connection.end();
+    });
+});
+
+app.post("/deleteUser",(req,res) => {
+
+	//var { email }  = JSON.parse(req.body)
+	var email   = req.body.email;
+	console.log("The email is: "+ email);
+    connection.query('DELETE FROM users WHERE email = ?', [email], (err, result) => {
+        if(err) throw err;
+        console.log('Affected rows: \n', result.affectedRows);
+        res.send({success:true});
+
+       // connection.end();
+    });
 });
 
 app.use(express.static(path.join(__dirname, "public")));
