@@ -2,11 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
+const nodemailer = require("nodemailer");
 
 const PORT = 3000;
 
 var mysql = require("mysql");
 var session = require("express-session");
+const { error } = require("console");
 app.set("view engine", "ejs");
 
 app.use(
@@ -76,6 +78,7 @@ app.get("/cart", function (request, response) {
 });
 
 app.get("/aboutUs", function (request, response) {
+    response.sendFile((__dirname = "/public/views/aboutUs.ejs"));
     if (request.session.loggedin) {
         response.render("aboutUs.ejs", {
             isLoggedIn: true,
@@ -85,6 +88,35 @@ app.get("/aboutUs", function (request, response) {
         response.render("aboutUs.ejs");
     }
     response.end();
+});
+
+app.post("/", (req, res) => {
+    console.log(req.body);
+
+    const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: "mailAdress@gmail.com",
+            pass: "password",
+        },
+    });
+
+    const mailOptions = {
+        from: req.body.email,
+        to: "emil.assarsson@hotmail.se",
+        subject: `Message from ${req.body.email}: ${req.body.subject}`,
+        text: req.body.message,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+            res.send("error");
+        } else {
+            console.log("Email sent: " + info.response);
+            res.send("success");
+        }
+    });
 });
 
 app.get("/phones", function (request, response) {
