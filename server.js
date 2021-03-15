@@ -207,9 +207,11 @@ app.post("/auth", function (request, response) {
                 if (results.length > 0) {
                     request.session.loggedin = true;
                     request.session.username = username;
+                    request.session.isAdmin = results[0].isAdmin;
                     response.render("login.ejs", {
                         isLoggedIn: true,
                         username: username,
+                        isAdmin : results[0].isAdmin
                     });
                 } else {
                     response.send("Incorrect Username and/or Password!");
@@ -224,8 +226,15 @@ app.post("/auth", function (request, response) {
 });
 
 app.get('/adminPage', function(request, response) {
+
+    if (request.session.isAdmin) {
+        response.render("adminPage.ejs", {
+            username: request.session.username,
+        });
+    } else {
+        response.status(403).send("You are trying to access restricted content");
+    }
 	
-	response.render('adminPage.ejs');
 	 
 response.end();
 });
