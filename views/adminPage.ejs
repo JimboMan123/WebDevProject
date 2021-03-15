@@ -14,7 +14,80 @@
     <a href="/index">Back to Main page</a>
 
     
-    <button class = createButton>Create new user</button>    
+    <button id = "createButtonID" class = createButton>Create new user</button>    
+
+
+ 
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      
+        <h1>Register new account</h1> <br>
+        <form action="/registerAction" method="POST">
+          <div>
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div>
+            <input type="checkbox" id = "newAdmin" name="newAdmin" value= "1"  >
+            <label for="newAdmin"> Is admin?</label><br><br>
+          </div>
+          <input type="submit" value="Register"></input>
+        </form>
+        
+       
+      
+
+
+    </div>
+  
+  </div>
+
+  <script>
+
+      //Modal code below 
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("createButtonID");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+  </script>
 
     <div style="clear:both;"></div>
 
