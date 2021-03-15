@@ -21,7 +21,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 12vh;
+    min-height: 9vh;
     background-color: #01c355;
     font-family: "Poppins", sans-serif;
     white-space: nowrap;
@@ -555,4 +555,67 @@ h3.phone1-price {
     background-color: #01c355;
     border-radius: 10px;
     border-color: lightgray;
+}
+
+.confirm-button:hover {
+    opacity: 0.8;
+}
+
+/* ----------------- about us --------------- */
+
+.about-us-section {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.about-us-container {
+    width: 50%;
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.about-us-content-section {
+    float: left;
+    width: 55%;
+}
+
+.image-section {
+    padding-top: 17%;
+    float: right;
+    width: 42%;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+}
+
+.about-us-content-section .section-title {
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+.about-us-content-section .section-content h4 {
+    margin-top: 20px;
+    font-size: 21px;
+}
+
+.about-us-content-section .section-content p {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.about-us-content-section .section-content .button {
+    margin-top: 40px;
+}
+
+.about-us-content-section .section-content .button a {
+    background-color: #01c355;
+    padding: 12px 40px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 1.5px;
 }
