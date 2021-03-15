@@ -24,9 +24,9 @@ fetch('/getUsers')
         for(var i = 0; i < obj.length; i++) {
             
            // var id1 = document.createTextNode(obj[i].id);
-            var username1 = document.createTextNode(obj[i].username);
-            var email1 = document.createTextNode(obj[i].email);
-            var isAdmin1 = document.createTextNode(obj[i].isAdmin);
+            var username1 = document.createTextNode("Username: "+ obj[i].username);
+            var email1 = document.createTextNode("E-mail: "+obj[i].email);
+            var isAdmin1 = document.createTextNode("isAdmin: "+ obj[i].isAdmin);
         
 
             var usernameElement = document.createElement("div");
@@ -130,20 +130,19 @@ function deleteUser(clickedId){
 
 
 
-/*
+
 document.addEventListener('DOMContentLoaded', function() {
     
 
     //run this code when html page is finished loading. 
+    fetchUsers();
 
-    setInterval(function(){ 
-        
+  //  setInterval(function(){ 
         //do something here every 60 seconds
-
-    }, 60000);
+    //}, 60000);
         
 }, false);
-*/
+
 
 
 

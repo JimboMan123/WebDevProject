@@ -49,6 +49,14 @@ margin-top: 10%;
   margin-top: 10%;
 }
 
+.users{
+  overflow: hidden;
+  border: 1px solid black;
+  margin-bottom: 1px;
+  background-color: lightgray;
+
+}
+
 .user{
   overflow: hidden;
   border: 1px solid black;
@@ -66,6 +74,7 @@ float: left;
   padding: 10px;
   margin: 0px;
   float: left;
+  
 }
 
 .isAdmin{

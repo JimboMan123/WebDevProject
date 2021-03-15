@@ -44,6 +44,7 @@ app.get("/", function (request, response) {
         response.render("index.ejs", {
             isLoggedIn: true,
             username: request.session.username,
+            isAdmin : request.session.isAdmin
         });
     } else {
         response.render("index.ejs");
@@ -56,6 +57,7 @@ app.get("/index", function (request, response) {
         response.render("index.ejs", {
             isLoggedIn: true,
             username: request.session.username,
+            isAdmin : request.session.isAdmin
         });
     } else {
         response.render("index.ejs");
