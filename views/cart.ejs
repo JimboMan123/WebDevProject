@@ -12,6 +12,15 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
             rel="stylesheet"
         />
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+        ></script>
+        <script type="text/javascript">
+            (function () {
+                emailjs.init("user_f64DnictIyq4MlC4mYcL5");
+            })();
+        </script>
     </head>
 
     <body>
@@ -40,10 +49,10 @@
                         <ion-icon name="basket"></ion-icon>Cart<span>0</span>
                     </a>
                 </li>
-                <% if( typeof(isLoggedIn) !="undefined"){%> 
-                    <%if (isLoggedIn) { %>
-                        <li><a href="/logout">Logout</a></li>
-                <% }} else  { %>
+                <% if( typeof(isLoggedIn) !="undefined"){%> <%if (isLoggedIn) {
+                %>
+                <li><a href="/logout">Logout</a></li>
+                <% }} else { %>
                 <li><a href="/login">Sign in</a></li>
                 <% } %>
             </ul>
@@ -57,9 +66,14 @@
                 <h5 class="total">TOTAL</h5>
             </div>
             <div class="products"></div>
+            <button class="confirm-button" onclick="sendOrderByEmail()">
+                Confirm Order
+            </button>
         </div>
 
         <script src="script/main.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src="script/confirmOrder.js"></script>
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     </body>
 </html>
