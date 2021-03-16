@@ -48,12 +48,51 @@
         </form>
         
        
-      
-
 
     </div>
   
   </div>
+
+
+  <!-- The Update Modal -->
+<div id="modal1" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1">
+        <span class="close1">&times;</span>
+
+        <h1>Update user</h1><br>
+        <form action="/updateUserAction" method="POST">
+            <div>
+                <label for="current_name">Current username</label><br>
+                <input type="hidden" id ="current_name_hidden" name="current_name" >
+                <input type="text" id="current_name" name="current_name" value ="name" disabled>
+              </div>
+              <div>
+                <label for="email">E-mail</label><br>
+                <input type="hidden" id ="current_email_hidden" name="email_hidden" >
+                <input type="text" id="current_email" name="email" value ="email" disabled>
+              </div>
+          <div>
+            <label for="name">New username</label><br>
+            <input type="text" id="name" name="new_name" required>
+          </div>
+          <div>
+            <label for="password">New password</label><br>
+            <input type="password" id="password" name="new_password" required>
+          </div>
+         
+          <input type="submit" value="Submit"></input>
+        </form>
+
+
+    </div>
+   
+    
+
+    </div>
+  
+  
 
   <script>
 

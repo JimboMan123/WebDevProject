@@ -353,6 +353,28 @@ app.post("/deleteUser",(req,res) => {
     });
 });
 
+app.post("/updateUserAction",(req,res) => {
+
+    var email = req.body.email_hidden;
+    console.log(email);
+    var new_username = req.body.new_name;
+    var new_password = req.body.new_password;
+	
+    connection.query('UPDATE users SET username = ?, password = ? WHERE email = ?', 
+    [new_username, new_password, email], (err, result) => {
+        if(err) throw err;
+        console.log('Affected rows: \n', result.affectedRows);
+
+        res.render("adminPage.ejs", {
+            
+        });
+        res.end();
+
+       // connection.end();
+    });
+});
+
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(PORT, () => {
