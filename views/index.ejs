@@ -44,14 +44,15 @@
                         <ion-icon name="basket"></ion-icon>Cart<span>0</span>
                     </a>
                 </li>
-                <% if( typeof(isLoggedIn) !="undefined"){%> <%if (isLoggedIn) {%>
-                
+                <% if( typeof(isLoggedIn) !="undefined"){%> <%if (isLoggedIn)
+                {%>
+
                 <li><a href="/logout">Logout</a></li>
                 <% }} else { %>
                 <li><a href="/login">Sign in</a></li>
-                <% } %>
-                <% if( typeof(isLoggedIn) !="undefined"){%> <%if (isAdmin) {%>
-                    
+                <% } %> <% if( typeof(isLoggedIn) !="undefined"){%> <%if
+                (isAdmin) {%>
+
                 <li><a href="/adminPage">Admin actions</a></li>
                 <% }} %>
             </ul>
