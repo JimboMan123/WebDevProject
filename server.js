@@ -9,6 +9,7 @@ const PORT = 3000;
 var mysql = require("mysql");
 var session = require("express-session");
 const { error } = require("console");
+const { response } = require("express");
 app.set("view engine", "ejs");
 
 app.use(
@@ -372,6 +373,20 @@ app.post("/updateUserAction",(req,res) => {
 
        // connection.end();
     });
+});
+
+
+
+app.post("/isUserLoggedIn",(req,res) => {
+
+	
+	var isLoggedIn = req.session.loggedin
+	
+    if(isLoggedIn)
+        res.send({loggedin:true});
+        else
+        res.send({loggedin:false});
+
 });
 
 
