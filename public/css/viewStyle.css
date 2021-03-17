@@ -61,7 +61,7 @@ margin-top: 10%;
   overflow: hidden;
   border: 1px solid black;
   margin-bottom: 1px;
-
+  background-color: white;
 }
 
 .username{
@@ -93,19 +93,27 @@ float: left;
   padding: 10px;
   margin: 0px;
   float: right;
+  color: black;
+  border-radius: 10px;
+  background-color: lightskyblue;
  }
 
  .deleteButton{
   padding: 10px;
   margin: 0px;
   float: right;
+  color: white;
+  border-radius: 10px;
+  background-color:#FF6347;
  }
 
  .createButton{
   padding: 10px;
   margin: 0px;
-  float: right;
-  margin-right: 10%;
+  background-color: #01c355;
+  margin-left: 80%;
+  color: white;
+  border-radius: 10px;
  }
   
   

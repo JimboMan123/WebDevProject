@@ -9,12 +9,24 @@
 
 <body>
 
-    <button onclick="fetchUsers()">Fetch users</button>
+    <style> body{background: lightgray;} </style>
 
     <a href="/index">Back to Main page</a>
 
+    <div style="clear:both;"></div>
+
+    <br>
+
+    <h1 style="margin-left: 10px; float: left;">Users</h1>
+
+    <button id = "createButtonID" class = createButton>Create new user</button> 
+
+    <div style="clear:both;"></div>
+
+    <br>
+
     
-    <button id = "createButtonID" class = createButton>Create new user</button>    
+     
 
 
  
@@ -34,7 +46,7 @@
           </div>
           <div>
             <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" autocomplete="off" required>
           </div>
           <div>
             <label for="password">Password</label><br>
@@ -128,34 +140,7 @@ window.onclick = function(event) {
 
   </script>
 
-    <div style="clear:both;"></div>
-
-    <br>
-
-    <h1 style="margin-left: 10px;">Users</h1>
-
-    <br>
-
-    <div class= "users">
     
-    <div class="username">
-        Username 
-    </div>
-
-    <div class="email">
-        Email 
-    </div>
-
-    <div class="isAdmin">
-        isAdmin
-    </div>
-
-</div>
-
-
-
-
-
 
 
 </body>

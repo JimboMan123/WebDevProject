@@ -484,7 +484,7 @@ footer {
     max-width: 1200px;
     position: relative;
     top: 70px;
-    left: 20%;
+    left: 5%;
     margin-bottom: 150px;
 }
 
@@ -656,7 +656,7 @@ h3.phone1-price {
 
 .contact-form {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 10%;
     width: 80%;
     height: 600px;

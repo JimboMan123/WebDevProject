@@ -32,7 +32,7 @@ fetch('/getUsers')
             var usernameElement = document.createElement("div");
             var emailElement = document.createElement("div");
             var isAdminElement = document.createElement("div");
-            var showInfoButton = document.createElement("button");
+           // var showInfoButton = document.createElement("button");
             var deleteButton = document.createElement("button");
             var updateButton = document.createElement("button");
             updateButton.id = obj[i].email;
@@ -43,10 +43,10 @@ fetch('/getUsers')
             deleteButton.textContent = "Delete user";
             deleteButton.className = "deleteButton";
             deleteButton.onclick = deleteUser(deleteButton.id);
-            showInfoButton.textContent = "Show info";
-            showInfoButton.id = obj[i].email;
-            showInfoButton.className = "infoButton";
-            showInfoButton.onclick = showInfo(showInfoButton.id);
+           // showInfoButton.textContent = "Show info";
+            //showInfoButton.id = obj[i].email;
+            //showInfoButton.className = "infoButton";
+            //showInfoButton.onclick = showInfo(showInfoButton.id);
             emailElement.className = "email";
             isAdminElement.className = "isAdmin";
             usernameElement.className = "username";
@@ -59,7 +59,7 @@ fetch('/getUsers')
             div.appendChild(usernameElement);
             div.appendChild(emailElement);
             div.appendChild(isAdminElement);
-            div.appendChild(showInfoButton);
+           // div.appendChild(showInfoButton);
             div.appendChild(deleteButton);
             div.appendChild(updateButton);
 
